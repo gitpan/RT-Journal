@@ -6,7 +6,7 @@ $Page => 1
 inherit => 0
 </%flags>
 <%init>
-#$m->comp('../Elements/_SetDefaults');
+$m->comp('../Elements/_SetDefaults');
 
 my $argument = $m->dhandler_arg;
 my $username;

@@ -23,7 +23,7 @@
 [<a href="Edit.html?id=<%$post->Id%>"><&|/l&>Edit</&></a>]
 % }
 % my $comments = $post->Transactions;
-% $comments->Limit(FIELD => 'Type', VALUE => 'Correspond', OPERATOR => '=');
+% $comments->Limit(FIELD => 'Type', VALUE => 'Correspond', OPERATOR => '=', ENTRYAGGREGATOR => 'AND');
 <div class="blog-footer">
 <a href="<& Attr, User => $User, Name=>'BaseURL'&>/Entry/<%$post->Id%>"><&|/l,$comments->Count&>[_1] Comments</&></a> |
 <a href="<& Attr, User => $User, Name=>'BaseURL'&>/Entry/<%$post->Id%>"><&|/l&>Permalink</&></a>
@@ -49,5 +49,5 @@ $EntriesObj	=> undef
 </%ARGS>
 <%init>
 #return if ($m->cache_self([expires_in => '1 hour']));
-my $guest = RT::CurrentUser->new('RT::Journal-guest');
+my $guest = RT::CurrentUser->new('RT::Journal-Guest');
 </%init>
